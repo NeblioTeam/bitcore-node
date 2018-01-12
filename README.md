@@ -1,42 +1,56 @@
-Bitcore Node
+Neblcore Node
 ============
 
-A Bitcoin full node for building applications and services with Node.js. A node is extensible and can be configured to run additional services. At the minimum a node has native bindings to Bitcoin Core with the [Bitcoin Service](docs/services/bitcoind.md). Additional services can be enabled to make a node more useful such as exposing new APIs, adding new indexes for addresses with the [Address Service](docs/services/address.md), running a block explorer, wallet service, and other customizations.
+A Neblio full node for building applications and services with Node.js. A node is extensible and can be configured to run additional services. At the minimum a node has native bindings to Neblio Core with the [Neblio Service](docs/services/bitcoind.md). Additional services can be enabled to make a node more useful such as exposing new APIs, adding new indexes for addresses with the [Address Service](docs/services/address.md), running a block explorer, wallet service, and other customizations.
 
-## Install
-
-```bash
-npm install -g bitcore-node
-bitcore-node start
+## Get Started
+```
+git clone -b neblcore-node https://github.com/NeblioTeam/bitcore-node.git
+cd bitcore-node
+npm install
 ```
 
-Note: For your convenience, we distribute binaries for x86_64 Linux and x86_64 Mac OS X. Upon npm install, the binaries for your platform will be downloaded. For more detailed installation instructions, or if you want to compile the project yourself, then please see the [Build & Install](docs/build.md) documentation to build the project from source.
+
+use bitcore-node from previous compiled directory to create a node
+```
+./bitcore-node/bin/bitcore-node create nebl-node
+```
+- now copy your compiled bitcoind.node in bitcore-node/build/Release to
+
+nebl-node/node_modules/bitcore-node/build/Release
+
+- and replace the whole 'lib' directory from previously compiled neblcore-lib here
+
+nebl-node/node_modules/bitcore-lib
+
+- and copy module 'scryptsy' from neblcore-lib/node_modules to
+
+nebl-node/node_modules
+
+```
+cd nebl-node
+../bitcore-node/bin/bitcore-node start
+
+info: Starting bitcoind
+info: Bitcoin Daemon Ready
+info: Starting db
+info: Bitcoin Database Ready
+info: Starting address
+info: Starting web
+info: Bitcore Node ready
+info: Bitcoin Height: 16 Percentage: 0.00019133722526021302
+info: Bitcoin Height: 32 Percentage: 0.0003714192716870457
+info: Bitcoin Height: 48 Percentage: 0.0005515012890100479
+...
+...
+```
 
 ## Prerequisites
 
 - Node.js v0.12 or v4.2
-- ~100GB of disk storage
+- ~10GB of disk storage
 - ~4GB of RAM
 - Mac OS X >= 10.9, Ubuntu >= 12.04 (libc >= 2.15 and libstdc++ >= 6.0.16)
-
-## Configuration
-
-Bitcore includes a Command Line Interface (CLI) for managing, configuring and interfacing with your Bitcore Node.
-
-```bash
-bitcore-node create -d <bitcoin-data-dir> mynode
-cd mynode
-bitcore-node install <service>
-bitcore-node install https://github.com/yourname/helloworld
-```
-
-This will create a directory with configuration files for your node and install the necessary dependencies. For more information about (and developing) services, please see the [Service Documentation](docs/services.md).
-
-To start bitcore-node as a daemon:
-
-```bash
-bitcore-node start --daemon
-```
 
 ## Add-on Services
 
