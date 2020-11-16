@@ -14,8 +14,8 @@
     },
     "bitcore-lib": {
       "version": "0.13.19",
-      "from": "git+https://github.com/NeblioTeam/bitcore-lib.git#de17a61061cf99951fd186e716a202a24a36e18c",
-      "resolved": "git+https://github.com/NeblioTeam/bitcore-lib.git#de17a61061cf99951fd186e716a202a24a36e18c",
+      "from": "git+https://github.com/NeblioTeam/bitcore-lib.git#3e581b13525b71588c0d5ed92941aec65e11ebd2",
+      "resolved": "git+https://github.com/NeblioTeam/bitcore-lib.git#3e581b13525b71588c0d5ed92941aec65e11ebd2",
       "dependencies": {
         "bn.js": {
           "version": "2.0.4",
